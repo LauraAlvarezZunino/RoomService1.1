@@ -5,49 +5,64 @@
             "nombre": "Jose Suarez",
             "dni": "111111",
             "email": "lala@hotmail.com",
-            "telefono": "2494673455"
+            "telefono": "2494673455",
+            "clave": "lala123"
         },
         {
             "id": 2,
             "nombre": "Josesito Rodriguez",
             "dni": "24567890",
             "email": "jose@gmail.com",
-            "telefono": "2494698754"
+            "telefono": "2494698754",
+            "clave": "lalas"
         },
         {
             "id": 3,
             "nombre": "Ana Martinez",
             "dni": "34567891",
             "email": "ana.martinez@example.com",
-            "telefono": "2494789654"
+            "telefono": "2494789654",
+            "clave": "lolo"
         },
         {
             "id": 4,
             "nombre": "Carlos Lopez",
             "dni": "45678912",
             "email": "carlos.lopez@example.com",
-            "telefono": "2494867531"
+            "telefono": "2494867531",
+            "clave": "l123"
         },
         {
             "id": 5,
             "nombre": "Lucia Fernandez",
             "dni": "56789123",
             "email": "lucia.fernandez@example.com",
-            "telefono": "2494938671"
+            "telefono": "2494938671",
+            "clave": "321lal"
         },
         {
             "id": 6,
             "nombre": "Diego Perez",
             "dni": "67891234",
             "email": "diego.perez@example.com",
-            "telefono": "2494512365"
+            "telefono": "2494512365",
+            "clave": "hola123"
         },
         {
             "id": 7,
             "nombre": "Maria Garcia",
             "dni": "78912345",
             "email": "maria.garcia@example.com",
-            "telefono": "2494671234"
+            "telefono": "2494671234",
+            "clave": "holo123"
+        },
+        {
+            "id": 8,
+            "nombre": "lsl lsdl",
+            "dni": "34532342",
+            "email": "dfgd@fds.com",
+            "telefono": "34535345",
+            "clave": "sfsdfs 34"
         }
     ]
 }

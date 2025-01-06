@@ -25,14 +25,14 @@ function menuUsuario()
             break;
 
         case 2:
-            echo 'Ingrese su DNI para continuar: ';
-            $dni = trim(fgets(STDIN));
-            $dniGuardado = $dni;
-            $usuario = $usuariosGestor->obtenerUsuarioPorDni($dni);
+            echo 'Ingrese su clave para continuar: ';
+            $clave = trim(fgets(STDIN));
+            $claveGuardada = $clave;
+            $usuario = $usuariosGestor->obtenerUsuarioPorclave($claveGuardada);
             if ($usuario) {
                 menuUsuarioRegistrado($usuario, $habitacionesGestor, $reservasGestor,$usuariosGestor);
             } else {
-                echo "DNI no encontrado. Inténtelo de nuevo.\n";
+                echo "Clave no encontrada. Inténtelo de nuevo.\n";
                 menuUsuario();
             }
             break;
