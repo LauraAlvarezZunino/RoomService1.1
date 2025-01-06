@@ -1,0 +1,28 @@
+{
+    "reservas": [
+        {
+            "id": 12,
+            "fechaInicio": "2024-11-25",
+            "fechaFin": "2024-11-27",
+            "habitacion": "10",
+            "costo": 68000,
+            "usuarioDni": "111111"
+        },
+        {
+            "id": 13,
+            "fechaInicio": "2024-11-29",
+            "fechaFin": "2024-11-30",
+            "habitacion": "4",
+            "costo": 40000,
+            "usuarioDni": "12345678"
+        },
+        {
+            "id": 14,
+            "fechaInicio": "2024-11-20",
+            "fechaFin": "2024-11-27",
+            "habitacion": "5",
+            "costo": 245000,
+            "usuarioDni": "111111"
+        }
+    ]
+}

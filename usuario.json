@@ -1,0 +1,53 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "Jose Suarez",
+            "dni": "111111",
+            "email": "lala@hotmail.com",
+            "telefono": "2494673455"
+        },
+        {
+            "id": 2,
+            "nombre": "Josesito Rodriguez",
+            "dni": "24567890",
+            "email": "jose@gmail.com",
+            "telefono": "2494698754"
+        },
+        {
+            "id": 3,
+            "nombre": "Ana Martinez",
+            "dni": "34567891",
+            "email": "ana.martinez@example.com",
+            "telefono": "2494789654"
+        },
+        {
+            "id": 4,
+            "nombre": "Carlos Lopez",
+            "dni": "45678912",
+            "email": "carlos.lopez@example.com",
+            "telefono": "2494867531"
+        },
+        {
+            "id": 5,
+            "nombre": "Lucia Fernandez",
+            "dni": "56789123",
+            "email": "lucia.fernandez@example.com",
+            "telefono": "2494938671"
+        },
+        {
+            "id": 6,
+            "nombre": "Diego Perez",
+            "dni": "67891234",
+            "email": "diego.perez@example.com",
+            "telefono": "2494512365"
+        },
+        {
+            "id": 7,
+            "nombre": "Maria Garcia",
+            "dni": "78912345",
+            "email": "maria.garcia@example.com",
+            "telefono": "2494671234"
+        }
+    ]
+}
