@@ -65,7 +65,7 @@ case 1:
     verHabitaciones($habitacionesGestor); // Asegúrate de que esta función reciba los parámetros necesarios.
     break;
 case 2:
-    crearReserva($usuario, $habitacionesGestor, $reservasGestor);
+    crearReserva($usuario, $habitacionesGestor, $reservasGestor, $usuariosGestor);
     break;
 case 3:
     mostrarReservas($reservasGestor, false, $usuario);
