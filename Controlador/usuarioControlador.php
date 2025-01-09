@@ -61,13 +61,15 @@ class UsuarioControlador
     public function obtenerUsuarioPorClave($clave)
     {
         foreach ($this->usuarios as $usuario) {
-            if ($usuario->getClave() == $clave) {
+            if ($usuario->getClave() === $clave) {
                 return $usuario;
             }
         }
-
-        return null;
+        return null; // Si no encuentra el usuario, retorna null
     }
+    
+    
+       
 
     public function actualizarUsuario($id, $nuevosDatos)
     {

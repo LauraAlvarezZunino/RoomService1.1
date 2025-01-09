@@ -4,13 +4,13 @@
 
 function modificarReserva($reservasGestor, $habitacionesGestor, $esAdmin = false, $usuario = null)
 {
-    global $dniGuardado;
+    global $claveGuardada;
     echo 'Ingrese el ID de la reserva que desea modificar: ';
     $id = trim(fgets(STDIN));
     $reserva = $reservasGestor->buscarReservaPorId($id);
 
     // Verificar si la reserva existe y si el usuario es el dueño, a menos que sea un administrador
-    if (! $reserva || (! $esAdmin && $reserva->getUsuarioDni() !== $dniGuardado)) {
+    if (! $reserva || (! $esAdmin && $reserva->obtenerUsuarioporClave() !== $claveGuardada)) {
         echo "Reserva no encontrada o no tiene permisos para modificar esta reserva.\n";
 
         return;
@@ -86,13 +86,13 @@ function modificarReserva($reservasGestor, $habitacionesGestor, $esAdmin = false
 
 function mostrarReservas($reservasGestor, $esAdmin = false, $usuario = null)
 {
-    global $dniGuardado;
+    global $claveGuardada;
     $reservas = $reservasGestor->obtenerReservas();
     $tieneReservas = false;
 
     foreach ($reservas as $reserva) {
         // Si no es administrador, mostramos solo las reservas del usuario actual
-        if ($esAdmin || ($usuario && $reserva->getUsuarioDni() === $dniGuardado)) {
+        if ($esAdmin || ($usuario && $reserva->obtenerUsuarioPorClave() === $claveGuardada)) {
             echo "-------------------------\n";
             echo 'ID: ' . $reserva->getId() . "\n";
             echo 'Fecha Inicio: ' . $reserva->getFechaInicio() . "\n";
@@ -117,7 +117,7 @@ function eliminarReserva($reservasGestor, $usuario = null, $esAdmin = false)
     $reserva = $reservasGestor->buscarReservaPorId($idEliminar);
 
     // Si no es administrador, verificamos que la reserva pertenezca al usuario
-    if (! $reserva || (! $esAdmin && $reserva->getUsuarioDni() !== $usuario->getDni())) {
+    if (! $reserva || (! $esAdmin && $reserva->obtenerUsuarioPorClave() !== $usuario->getClave())) {
         echo "Reserva no encontrada o no pertenece a este usuario.\n";
 
         return;
@@ -128,32 +128,31 @@ function eliminarReserva($reservasGestor, $usuario = null, $esAdmin = false)
 }
 
 //USUARIOS
-
 function modificarUsuario($usuario, $esAdministrador = false)
 {
-    global $dniGuardado;
+    global $claveGuardada;
     $usuariosGestor = new UsuarioControlador;
-    $usuario = $usuariosGestor->obtenerUsuarioPorDni($dniGuardado);
 
     if ($esAdministrador) {
         echo 'Ingrese el ID del usuario que quiere modificar: ';
         $id = trim(fgets(STDIN));
+        $usuario = $usuariosGestor->obtenerUsuarioPorId($id);
     } else {
-        if (! $usuario) {
+        // Aquí no sobrescribimos $usuario si ya fue pasado correctamente
+        if (!$usuario) {
             echo "Usuario no encontrado o no autorizado.\n";
-
             return false;
         }
         $id = $usuario->getId();
     }
 
-    $usuario = $usuariosGestor->obtenerUsuarioPorId($id);
-
-    if (! $usuario) {
+    if (!$usuario) {
         echo "Usuario no encontrado.\n";
-
         return false;
     }
+
+    // Lógica de modificación
+  
 
     echo "Modificando al usuario con ID: {$usuario->getId()}\n";
     echo 'Nombre actual: ' . $usuario->getNombreApellido() . "\n";
@@ -170,10 +169,14 @@ function modificarUsuario($usuario, $esAdministrador = false)
     echo 'Introduce el nuevo teléfono (deja vacío para mantener el actual): ';
     $telefono = trim(fgets(STDIN));
 
+    echo 'Introduce la nueva clave (deja vacío para mantener el actual): ';
+    $clave = trim(fgets(STDIN));
+
     $nuevosDatos = [
         'nombre' => $nombreApellido ?: null,
         'email' => $email ?: null,
         'telefono' => $telefono ?: null,
+        'clave' => $clave ?: null,
     ];
 
     if ($usuariosGestor->actualizarUsuario($id, $nuevosDatos)) {
@@ -182,6 +185,8 @@ function modificarUsuario($usuario, $esAdministrador = false)
         echo "No se pudo actualizar el usuario.\n";
     }
 }
+
+
 
 //HABITACIONES
 

@@ -61,34 +61,34 @@ function menuUsuarioRegistrado($usuario, $habitacionesGestor, $reservasGestor, $
         $opcion = trim(fgets(STDIN));
 
         switch ($opcion) {
-            case 1:
-                verHabitaciones();
-                break;
-            case 2:
-                crearReserva($usuario, $habitacionesGestor, $reservasGestor);
-                break;
-            case 3:
-                mostrarReservas($reservasGestor, false, $usuario);
-                break;
-            case 4:
-                modificarReserva($reservasGestor, $habitacionesGestor, false, $usuario);
-                break;
-            case 5:
-                eliminarReserva($reservasGestor, $usuario);
-                break;
-            case 6:
-                mostrarDatosUsuario($usuario);
-                break;
-            case 7:
-                modificarUsuario($usuario);
-                break;
-            case 8:
-                echo "Saliendo del sistema...\n";
-                return;
-            default:
-                echo "Opción no válida. Inténtelo de nuevo.\n";
-                break;
-        }
-    }
+case 1:
+    verHabitaciones($habitacionesGestor); // Asegúrate de que esta función reciba los parámetros necesarios.
+    break;
+case 2:
+    crearReserva($usuario, $habitacionesGestor, $reservasGestor);
+    break;
+case 3:
+    mostrarReservas($reservasGestor, false, $usuario);
+    break;
+case 4:
+    modificarReserva($reservasGestor, $habitacionesGestor, false, $usuario);
+    break;
+case 5:
+    eliminarReserva($reservasGestor, $usuario);
+    break;
+case 6:
+    mostrarDatosUsuario($usuario);
+    break;
+case 7:
+    modificarUsuario($usuario, false);
+    break;
+case 8:
+    echo "Saliendo del sistema...\n";
+    return;
+default:
+    // Este caso ya no sería necesario por la validación previa.
+    echo "Opción no válida. Inténtelo de nuevo.\n";
+    break;
 }
-
+}
+}
